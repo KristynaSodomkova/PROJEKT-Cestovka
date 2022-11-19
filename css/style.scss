@@ -1,0 +1,412 @@
+$primary: #F03000;
+$secondary: white;
+$font-primary: 16px;
+$font-secondary: 18px;
+$font-family: 'Roboto', sans-serif;
+
+body {
+    margin: 20px;
+}
+
+p {
+    font-size: $font-primary;
+    margin: 0;
+}
+
+h1 {
+    margin: 40px 0 20px 0
+}
+
+p, .header__link, .gallery__price, .gallery__caption, h1 {
+    font-family: $font-family;
+}
+
+p, .header__link, .gallery__price {
+    font-weight: 500;
+}
+
+.hero__title, .article__title {
+    font-weight: 600;
+}
+
+
+.gallery--title, .gallery__caption {
+    font-weight: 700;
+}
+
+
+/*Hlavička + menu*/
+
+.header {
+
+    margin-bottom: 30px;
+
+    &__menu--item { 
+        margin: 0; 
+        padding: 0; 
+        background-color: $secondary; 
+    } 
+
+    &__item{ 
+        display: inline-block; 
+    }
+
+    &__link{ 
+        display: inline-block; 
+        color: $primary; 
+        text-decoration: none; 
+        padding: 20px 20px; 
+    } 
+
+    &__link:hover {
+        background-color: $primary;
+        color: $secondary;
+    }
+
+        @media screen and (min-width: 0px) {
+
+            &__menu--item, &__logo {
+                text-align: center;
+                margin-top: 30px;
+                font-size: $font-secondary;
+            }
+        }
+
+        @media screen and (min-width: 768px) {
+
+            & {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            &__logo {
+                margin-left: 40px;
+            } 
+        }
+
+        @media screen and (min-width: 960px) {
+            & {
+                max-width: 1160px;
+                margin: 0 auto;
+            }
+        }
+
+}
+
+
+/*První pruh + třetí pruh - fotogalerie*/
+
+.gallery {
+
+    &__description-1 {
+        background-image: url("../images/palmy.png");
+    }
+
+    &__description-2 {
+        background-image: url("../images/jezero2.png");
+    }
+
+    &__description-3 {
+        background-image: url("../images/nakole.png");
+    }
+
+    &__description-4 {
+        background-image: url("../images/lodicka.png");
+    }
+
+    &__description-5 {
+        background-image: url("../images/podkova.png");
+    }
+
+    &__description-6 {
+        background-image: url("../images/zatoka.png");
+    }
+
+    &__description {
+        background-repeat: no-repeat; 
+        background-position: center; 
+        background-size: cover; 
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: $secondary;
+    }
+
+    &--title {
+        font-size: 28px;
+        margin-bottom: 15px;  
+    }
+
+    &__caption {
+        font-size: 20px;
+        margin: 20px;
+    }
+
+    &__price {
+        background-color: $primary;
+        padding: 10px;
+        align-self: start;
+        font-size: $font-secondary;
+        margin: 20px;
+    }
+
+    @media screen and (min-width: 0px) {
+
+        &__description-1, &__description-4 {
+            height: 240px;
+        }
+
+        &__description-2, &__description-3, &__description-5, &__description-6 {
+            height: 150px;
+        }
+
+        &__description + &__description {
+            margin-top: 20px;
+        }
+
+    }
+
+    @media screen and (min-width: 768px) {
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+
+        &__description + &__description {
+            margin-top: 0;
+        }
+
+        &__description-1, &__description-4 {
+            grid-column: 1 / -1;
+            height: 380px;
+        }
+
+        &__description-2, &__description-5 {
+            grid-column: 1 / 2;
+            height: 180px;
+        }
+
+        &__description-3,  &__description-6 {
+            grid-column: 2 / -1;
+            height: 180px;
+        }
+    }
+
+}
+
+@media screen and (min-width: 960px) {
+
+    .grid-1, .grid-2 {
+        max-width: 1160px;
+        margin: 0 auto;
+    }
+
+    .bigleft {
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 1fr 1fr;
+
+        &__1 {
+            grid-column: 1 / 2;
+            grid-row: span 2;
+        }
+        
+        &__2, &__3 {
+            grid-column: 2 / -1;
+        }
+    }
+
+    .bigright {
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 1fr 1fr;
+
+        &__4 {
+            grid-column: 2 / 3;
+            grid-row: span 2;
+        }
+
+        &__5 {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+        }
+
+        &__6 {
+            grid-column: 1 / 2;
+            grid-row: 2 / 3;
+        }
+
+    } 
+
+}
+
+
+/*Druhý pruh - obsah s ikonkami*/
+
+
+.hero {
+
+    @media screen and (min-width: 0px) {
+        
+        &__content {
+            background-color: #F0F0F0;
+            margin: 10px 0;
+            display: flex;
+        }
+    
+        &__icon {
+            margin: 20px 20px 0 20px;
+            height: 40px;
+        }
+    
+        &__title {
+            font-size: $font-secondary;
+            color: $primary;
+            padding: 20px 0 0 10px;
+        }
+    
+        &__text {
+           padding: 20px 20px 20px 10px;
+        }
+
+    } 
+
+}
+
+.flex {
+
+    padding-top: 40px;
+    max-width: 1160px;
+    margin: 0 auto;
+
+    .hero {
+
+    @media screen and (min-width: 768px) {
+
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+
+        &__content-1 {
+            grid-column: 1 / 2;
+        }
+
+        &__content-2 {
+            grid-column: 2 / 3;
+        }
+
+        &__content-3  {
+            grid-column: 1 / 2;
+        }
+
+        &__content-4 {
+            grid-column: 2 / 3;
+        }
+
+        &__content {
+            margin: 0;
+            flex-direction: column;
+        }
+
+        &__title, &__text {
+            text-align: center;
+        }
+    }
+
+    @media screen and (min-width: 960px) {
+
+        grid-template-columns: repeat(4, 1fr);
+
+        &__content-1 {
+            grid-column: 1 / 2;
+        }
+
+        &__content-2 {
+            grid-column: 2 / 3;
+        }
+
+        &__content-3  {
+            grid-column: 3 / 4;
+        }
+
+        &__content-4 {
+            grid-column: 4 / 5;
+        }
+    }
+
+
+}
+}
+
+
+
+/*Čtvrtý pruh - obsah bez ikon*/
+
+
+.article {
+
+    @media screen and (min-width: 0px) {
+
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    
+        &__content {
+            grid-column: 1 / -1;
+            background-color: #F0F0F0;
+            padding: 20px;
+        }
+    
+        &__date {
+            color: #888888;
+            margin-bottom: 10px;
+        }
+    
+        &__title {
+            color: $primary;
+            margin-bottom: 10px;
+        }
+
+    }
+
+    @media screen and (min-width: 960px) {
+
+        grid-template-columns: repeat(3, 1fr);
+
+        &__content-1 {
+            grid-column: 1 / 2;
+        }
+
+        &__content-2 {
+            grid-column: 2 / 3;
+        }
+
+        &__content-3 {
+            grid-column: 3 / 4;
+        }
+
+    }
+
+} 
+
+.grid-3 {
+    max-width: 1160px;
+    margin: 0 auto;
+}
+
+
+.footer {
+
+    background-color: #444444;
+
+    max-width: 1160px;
+    margin: 0 auto;
+
+    &__text {
+        color: $secondary;
+        text-align: center;
+        font-size: $font-primary;
+        padding: 20px;
+        margin: 40px 0 40px 0;
+    }
+
+}
